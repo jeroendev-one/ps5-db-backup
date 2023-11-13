@@ -81,6 +81,7 @@ int main() {
         copy_file("/system_data/priv/mms/appinfo.db", "/mnt/usb1/PS5/db-backup/appinfo.db");
         copy_file("/system_data/priv/mms/addcontent.db", "/mnt/usb1/PS5/db-backup/addcontent.db");
         copy_file("/system_data/priv/mms/av_content_bg.db", "/mnt/usb1/PS5/db-backup/av_content_bg.db");
+        
         sendNotification("Dump to USB1 done!");
     }
   } else {
