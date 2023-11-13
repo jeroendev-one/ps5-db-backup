@@ -14,18 +14,6 @@ typedef struct notify_request {
 
 int sceKernelSendNotificationRequest(int, notify_request_t*, size_t, int);
 
-// Create empty file
-void touch(const char *filename) {
-    int file_descriptor = open(filename, O_CREAT, S_IRUSR | S_IWUSR);
-
-    if (file_descriptor == -1) {
-        perror("Error creating file");
-        exit(EXIT_FAILURE);
-    }
-
-    close(file_descriptor);
-}
-
 // Send notify function
 void sendNotification(const char *message) {
   notify_request_t req;
@@ -52,6 +40,18 @@ void copy_file(char *sourcefile, char *destfile) {
     }
     close(src);
   }
+}
+
+// Create empty file
+void touch(const char *filename) {
+    int file_descriptor = open(filename, O_CREAT, S_IRUSR | S_IWUSR);
+
+    if (file_descriptor == -1) {
+        perror("Error creating file");
+        exit(EXIT_FAILURE);
+    }
+
+    close(file_descriptor);
 }
 
 // Stat check if exists
