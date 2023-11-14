@@ -1,0 +1,17 @@
+ELF := backup.posix.elf
+
+CC ?= cc
+
+CFLAGS := -g -Wall -std=gnu11
+
+all: $(ELF)
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) -o $@ $^
+
+$(ELF): main.o cmd.o
+	$(CC) -o $@ main.o cmd.o -lpthread
+
+clean:
+	rm -f *.o $(ELF)
+
