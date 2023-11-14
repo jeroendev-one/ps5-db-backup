@@ -44,10 +44,6 @@ jobs:
       run: |
         make clean all
 
-    - name: Build for Ubuntu
-      run: |
-        make -f Makefile.posix clean all
-
     - name: Upload payloads
       uses: actions/upload-artifact@v3
       with:
